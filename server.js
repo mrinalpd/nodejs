@@ -12,17 +12,14 @@ app.use((req,res,next)=>
     var now=new Date().toString();
     console.log('now',now,req.method,req.url);
 
-    next();         //not having this makes your page to load slower
-
- 
-
+    next();         //not having this does not load the page, used for secure access
 }
 );
 app.get('/',(req,res)=>
 {
     res.render('index.hbs',
         {
-            text1: 'Hi there this is KRITIKA',
+            text1: 'Hi there this is MRINAL',
             currentYear: new Date().getFullYear()
         }
     );
@@ -33,8 +30,8 @@ app.get('/about',(req,res)=>
 {
     res.render('about.hbs',
     {
-        pageTitle: 'ABOUT PAGE',
-        currentYear: new Date().getFullYear()
+        pageTitle: 'ABOUT PAGE'
+        /* currentYear: new Date().getFullYear() */
     });
 }
 );
